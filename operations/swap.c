@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oalzubi <oalzubi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 22:35:41 by oalzubi           #+#    #+#             */
-/*   Updated: 2026/11/05 22:36:58 by oalzubi          ###   ########.fr       */
+/*   Updated: 2026/11/10 15:21:46 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    swap(t_stack **stack)
+void	swap(t_stack **stack)
 {
-    t_stack *temp;
+	t_stack	*temp;
 
-    if (!*stack || !(*stack)->next)
-        return ;
-    temp = (*stack)->next;
-    (*stack)->next = temp->next;
-    temp->next = *stack;
-    *stack = temp;
+	if (!*stack || !((*stack)->next))
+		return ;
+	temp = (*stack)->next;
+	(*stack)->next = temp->next;
+	temp->next = *stack;
+	*stack = temp;
 }
 
-void    swap_a_swap_b(t_stack **stack_a, t_stack **stack_b)
+void	swap_a_swap_b(t_stack **stack_a, t_stack **stack_b)
 {
-    swap(stack_a);
-    swap(stack_b);
+	swap(stack_a);
+	swap(stack_b);
 }
