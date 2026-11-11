@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   delone.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 14:43:54 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/10/18 16:43:39 by mahal-zo         ###   ########.fr       */
+/*   Created: 2026/09/17 13:15:24 by mahal-zo          #+#    #+#             */
+/*   Updated: 2026/11/11 17:27:00 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	delone(t_stack *st, void (*del)(void *))
 {
-	size_t	size;
-	size_t	i;
-	char	*a;
-
-	if (ft_strlen(s) <= start)
-		return (ft_strdup(""));
-	i = start;
-	size = 0;
-	while (size < len && s[i])
+	if (st != NULL)
 	{
-		i++;
-		size++;
+		del(st->content);
+		free(st);
 	}
-	a = (char *) malloc(sizeof(char) * (size + 1));
-	if (!a)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		a[i] = s[start];
-		i++;
-		start++;
-	}
-	a[i] = '\0';
-	return (a);
 }

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/14 12:03:54 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/09/24 14:20:31 by mahal-zo         ###   ########.fr       */
+/*   Created: 2026/09/17 13:18:32 by mahal-zo          #+#    #+#             */
+/*   Updated: 2026/11/11 17:08:29 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	clear(t_stack **st, void (*del)(void *))
 {
-	unsigned char	*s1;
-	size_t			i;
+	t_stack	*need_del;
 
-	s1 = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	if (!st)
+		return ;
+	while ((*st) != NULL)
 	{
-		if (s1[i] == (unsigned char) c)
-			return (s1 + i);
-		i++;
+		need_del = (*st);
+		(*st) = (*st)->next;
+		delone(need_del, del);
 	}
-	return (NULL);
+	st = NULL;
 }

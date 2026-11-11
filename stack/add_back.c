@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   add_back.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/14 10:23:50 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/09/24 14:19:28 by mahal-zo         ###   ########.fr       */
+/*   Created: 2026/11/11 17:01:09 by mahal-zo          #+#    #+#             */
+/*   Updated: 2026/11/11 17:27:00 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+#include "push_swap.h"
+
+void	add_back(t_stack **st, t_stack *new)
 {
-	int		i;
+	t_stack	*lastnode;
 
-	i = 0;
-	while (s[i])
+	if ((*st) == NULL)
 	{
-		if (s[i] == (char) c)
-			return (((char *)s + i));
-		i++;
+		(*st) = new;
 	}
-	if (s[i] == (char) c)
-		return (((char *)s + i));
-	return (NULL);
+	else
+	{
+		lastnode = last(*st);
+		lastnode->next = new;
+	}
 }

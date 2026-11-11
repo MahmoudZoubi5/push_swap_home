@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   size.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 14:19:27 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/09/21 19:59:33 by mahal-zo         ###   ########.fr       */
+/*   Created: 2026/09/17 12:25:09 by mahal-zo          #+#    #+#             */
+/*   Updated: 2026/11/11 17:27:00 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strdup(const char *s)
+unsigned int	size(t_stack *st)
 {
-	int		i;
-	char	*a;
+	unsigned int	size;
 
-	a = malloc(sizeof (char) * (ft_strlen(s) + 1));
-	if (!a)
-		return (NULL);
-	i = 0;
-	while (s[i])
+	size = 0;
+	while (st != NULL)
 	{
-		a[i] = s[i];
-		i++;
+		size++;
+		st = st->next;
 	}
-	a[i] = '\0';
-	return (a);
+	return (size);
 }

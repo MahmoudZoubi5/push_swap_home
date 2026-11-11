@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   last.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/17 10:00:49 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/09/17 10:35:16 by mahal-zo         ###   ########.fr       */
+/*   Created: 2026/09/17 13:07:41 by mahal-zo          #+#    #+#             */
+/*   Updated: 2026/11/11 17:27:00 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_stack	*last(t_stack *st)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	if (st == NULL)
+		return (NULL);
+	while (st->next)
 	{
-		ft_putchar_fd(s[i], fd);
-		i++;
+		st = st->next;
 	}
+	return (st);
 }

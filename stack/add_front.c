@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   add_front.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/17 09:33:36 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/09/27 17:36:27 by mahal-zo         ###   ########.fr       */
+/*   Created: 2026/11/11 17:00:54 by mahal-zo          #+#    #+#             */
+/*   Updated: 2026/11/11 17:00:59 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	add_front(t_stack **st, t_stack *new)
 {
-	unsigned int	i;
-	char			*res;
-
-	i = 0;
-	res = (char *) malloc (ft_strlen(s) + 1);
-	if (!res)
-		return (NULL);
-	while (s[i])
-	{
-		res[i] = f(i, s[i]);
-		i++;
-	}
-	res[i] = '\0';
-	return (res);
+	if (!new)
+		return ;
+	new->next = *st;
+	*st = new;
 }
