@@ -6,7 +6,7 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 22:35:10 by oalzubi           #+#    #+#             */
-/*   Updated: 2026/11/10 15:18:23 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/15 16:26:16 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	rotate(t_stack **stack)
 	temp = *stack;
 	last = *stack;
 	while (last->next)
-		last = last->next; // why you didn't use the ft_lstlast() in libft
+		last = last->next; // why you didn't use the ft_lstlast() in libft sdalfjakjsdfkja
 	*stack = temp->next;
 	temp->next = NULL;
 	last->next = temp;
