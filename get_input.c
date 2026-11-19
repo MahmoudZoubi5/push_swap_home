@@ -6,7 +6,7 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 12:07:59 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/10 18:45:45 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/19 23:03:42 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,19 @@ int	no_argument(int size)
 
 int	main(int ac, char **av)
 {
+	t_stack	*stack;
+	
 	if (no_argument(ac))
 	{
 		ft_printf("Error\n");
 		return (0);
 	}
+	stack = check_number(&av[1]);
 	
+	ft_printf("%p\n",stack);
+	while (stack != NULL)
+	{
+		ft_printf("index : %d ----> val: %d\n",stack->index, stack->content);
+		stack = stack->next;
+	}
 }

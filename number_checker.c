@@ -6,13 +6,13 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 18:39:55 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/11 17:53:40 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/19 23:03:08 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_valid_number(char *str_num, int ans)
+int	is_valid_number(char *str_num, int *ans)
 {
 	long long int	num;
 	int				s;
@@ -32,13 +32,14 @@ int	is_valid_number(char *str_num, int ans)
 		num = num * 10 + (str_num[i] - '0');
 		i++;
 	}
-	ans = num;
+	*ans = num;
 	if (str_num[i] != '\0' || num > 2147483647 || num < -2147483648)
 		return (0);
 	return (1);
 }
 
-int	check_number(char **str_array)
+
+t_stack	*check_number(char **str_array)
 {
 	char	**split_ans;
 	int		num;
@@ -51,15 +52,16 @@ int	check_number(char **str_array)
 		split_ans = ft_split(*str_array, ' ');
 		while (*split_ans != NULL)
 		{
-			if (is_valid_number(*split_ans, num) == 1)
-			{
+			if (is_valid_number(*split_ans, &num))
 				add_back(&stack, new(num, index++));
-			}
 			else if (!is_valid_flag(*split_ans))
 			{
-				// free function;
-				return (0);
+				clear(&stack);
+				return (NULL);
 			}
+			split_ans++;
 		}
+		str_array++;
 	}
+	return (stack);
 }

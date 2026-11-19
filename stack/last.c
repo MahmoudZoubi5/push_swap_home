@@ -6,11 +6,11 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:07:41 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/11 17:27:00 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/19 22:46:23 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_stack	*last(t_stack *st)
 {

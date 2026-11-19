@@ -6,17 +6,16 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 13:15:24 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/11 17:27:00 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/19 22:46:25 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	delone(t_stack *st, void (*del)(void *))
+void	delone(t_stack *st)
 {
 	if (st != NULL)
 	{
-		del(st->content);
 		free(st);
 	}
 }

@@ -6,12 +6,12 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 17:01:09 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/11 17:27:00 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/19 22:39:59 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	add_back(t_stack **st, t_stack *new)
 {
