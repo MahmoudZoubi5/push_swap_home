@@ -6,11 +6,11 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 14:32:22 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/10 18:53:24 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/23 17:37:58 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	is_valid_flag(char *flag)
 {
@@ -18,7 +18,7 @@ int	is_valid_flag(char *flag)
 		|| is_adaptive(flag) || is_bench(flag));
 }
 
-int	check_flags(char **str_array, int bench)
+int	check_flags(char **str_array, int *bench)
 {
 	int	number_of_flags;
 	int	ans;
@@ -36,12 +36,14 @@ int	check_flags(char **str_array, int bench)
 		else if (is_adaptive(*str_array))
 			ans = 4;
 		else if (is_bench(*str_array))
-			bench = 1;
-		else if (is_valid_flag(*str_array))
+			(*bench)++;
+		if (is_valid_flag(*str_array))
 			number_of_flags++;
 		(str_array)++;
 	}
-	if (number_of_flags > 2 || !(bench == 1 && number_of_flags == 2))
+	ft_printf("binch: %d\n numver of flags: %d\n", *bench, number_of_flags);
+	if (number_of_flags > 2 || *bench > 1 || (*bench == 0
+			&& number_of_flags == 2))
 		return (-1);
 	return (ans);
 }

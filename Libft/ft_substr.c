@@ -6,7 +6,7 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 14:43:54 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/19 22:44:41 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/23 13:39:15 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*a;
 
 	if (ft_strlen(s) <= start)
-		return (malloc(0));
+		return (NULL);
 	i = start;
 	size = 0;
 	while (size < len && s[i])

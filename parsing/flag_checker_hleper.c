@@ -6,11 +6,11 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 18:37:02 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/11 17:43:53 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/23 13:57:39 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	is_simple(char *flag)
 {
