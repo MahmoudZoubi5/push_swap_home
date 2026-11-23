@@ -6,7 +6,7 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 22:34:11 by oalzubi           #+#    #+#             */
-/*   Updated: 2026/11/10 15:15:32 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/23 11:56:35 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	reverse_rotate(t_stack **stack)
 	if (!*stack || !((*stack)->next))
 		return ;
 	temp = *stack;
-	while (temp->next->next) 
-		temp = temp->next;   // why you didn't use the ft_lstlast() in libft
+	while (temp->next->next)
+		temp = temp->next;
 	last = temp->next;
 	temp->next = NULL;
 	last->next = *stack;
