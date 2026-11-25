@@ -6,7 +6,7 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 18:39:55 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/23 17:15:20 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/25 20:41:09 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,31 @@ static int	is_valid_number(char *str_num, int *ans)
 	return (1);
 }
 
+static void	clear_split(char **arr)
+{
+	int	i;
+
+	i = 0;
+	if (!arr)
+		return ;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
 static int	is_empty_argument(char **array)
 {
-	return (array[0] == NULL);
+	if (!array)
+		return (1);
+	if (array[0] == NULL)
+	{
+		clear_split(array);
+		return (1);
+	}
+	return (0);
 }
 
 static int	check_argument(char *arg, t_stack **stack, int *index)
@@ -58,16 +80,18 @@ static int	check_argument(char *arg, t_stack **stack, int *index)
 		return (-1);
 	while (split_ans[i] != NULL)
 	{
-		if (is_valid_number(*split_ans, &num))
+		if (is_valid_number(split_ans[i], &num))
 			add_back(stack, new_node(num, *index++));
-		else if (!is_valid_flag(*split_ans))
+		// if new node return null !!
+		else if (!is_valid_flag(split_ans[i]))
 		{
+			clear_split(split_ans);
 			clear(stack);
 			return (-1);
 		}
 		i++;
 	}
-	free(split_ans);
+	clear_split(split_ans);
 	return (1);
 }
 
@@ -81,7 +105,10 @@ t_stack	*check_number(char **str_array)
 	while (*str_array != NULL)
 	{
 		if (check_argument(*str_array, &stack, &index) == -1)
+		{
+			clear(&stack);
 			return (NULL);
+		}
 		str_array++;
 	}
 	return (stack);

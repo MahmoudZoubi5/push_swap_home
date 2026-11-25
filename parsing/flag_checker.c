@@ -6,7 +6,7 @@
 /*   By: mahal-zo <mahal-zo@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 14:32:22 by mahal-zo          #+#    #+#             */
-/*   Updated: 2026/11/23 17:37:58 by mahal-zo         ###   ########.fr       */
+/*   Updated: 2026/11/25 19:56:58 by mahal-zo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,11 @@ int	check_flags(char **str_array, int *bench)
 		else if (is_adaptive(*str_array))
 			ans = 4;
 		else if (is_bench(*str_array))
-			(*bench)++;
+			*bench = *bench + 1;
 		if (is_valid_flag(*str_array))
 			number_of_flags++;
 		(str_array)++;
 	}
-	ft_printf("binch: %d\n numver of flags: %d\n", *bench, number_of_flags);
 	if (number_of_flags > 2 || *bench > 1 || (*bench == 0
 			&& number_of_flags == 2))
 		return (-1);
