@@ -6,14 +6,14 @@
 /*   By: oalzubi <oalzubi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 17:12:21 by oalzubi           #+#    #+#             */
-/*   Updated: 2026/11/16 20:50:21 by oalzubi          ###   ########.fr       */
+/*   Updated: 2026/11/28 18:55:09 by oalzubi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void simple_sort(t_stack **stack_a, t_stack **stack_b)
+void selection_sort(t_stack **stack_a, t_stack **stack_b)
 {
     t_stack *min_node = *stack_a;
     t_stack *current = *stack_a;
